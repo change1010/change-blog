@@ -156,6 +156,18 @@ if ($posts.Count -eq 0) {
   throw "No markdown posts found in posts/."
 }
 
+$currentArticleNames = @{}
+foreach ($post in $posts) {
+  $currentArticleNames["$($post.Slug).html"] = $true
+}
+
+Get-ChildItem -Path $articlesDir -Filter "*.html" -File | ForEach-Object {
+  if (-not $currentArticleNames.ContainsKey($_.Name)) {
+    Remove-Item -LiteralPath $_.FullName
+    Write-Host "Removed stale article: $($_.Name)"
+  }
+}
+
 foreach ($post in $posts) {
   $title = HtmlEncode $post.Title
   $description = HtmlEncode $post.Summary

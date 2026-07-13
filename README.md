@@ -46,6 +46,7 @@
 - 修改首页样式：编辑 `assets/style.css`
 - 修改首页文案：编辑 `tools/build-blog.ps1` 里的首页模板，然后重新运行脚本
 - 修改文章：编辑 `posts/*.md`，然后重新运行脚本
+- 删除文章：删除 `posts` 里的对应 `.md` 文件，然后重新运行脚本；`articles` 里的旧 HTML 会自动清理
 - 查看生成的文章页：打开 `articles/*.html`
 
 站点地址：
