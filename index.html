@@ -1,595 +1,27 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="zh-CN">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="change1010 的个人博客，记录学习、代码、生活与灵感。">
-  <title>change1010 的博客</title>
-  <style>
-    :root {
-      color-scheme: light;
-      --ink: #24313d;
-      --muted: #687887;
-      --paper: #fffaf8;
-      --surface: rgba(255, 255, 255, 0.86);
-      --line: rgba(36, 49, 61, 0.13);
-      --sakura: #e78aa2;
-      --sakura-strong: #cf5575;
-      --leaf: #668c73;
-      --sky: #7ea0b8;
-      --gold: #be8f42;
-      --shadow: 0 18px 45px rgba(74, 57, 62, 0.13);
-      font-family: "Microsoft YaHei", "PingFang SC", "Noto Sans SC", system-ui, sans-serif;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      margin: 0;
-      color: var(--ink);
-      background:
-        linear-gradient(180deg, rgba(255, 250, 248, 0.9), rgba(247, 250, 246, 0.95)),
-        var(--paper);
-      line-height: 1.7;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    img {
-      display: block;
-      max-width: 100%;
-    }
-
-    .site-header {
-      position: fixed;
-      z-index: 20;
-      top: 0;
-      right: 0;
-      left: 0;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.46);
-      background: rgba(255, 255, 255, 0.72);
-      backdrop-filter: blur(18px);
-    }
-
-    .nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      width: min(1120px, calc(100% - 32px));
-      min-height: 64px;
-      margin: 0 auto;
-      gap: 20px;
-    }
-
-    .brand {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      font-weight: 700;
-      letter-spacing: 0;
-    }
-
-    .brand-mark {
-      display: grid;
-      width: 34px;
-      height: 34px;
-      place-items: center;
-      border: 1px solid rgba(207, 85, 117, 0.35);
-      border-radius: 50%;
-      background: #fff;
-      color: var(--sakura-strong);
-      box-shadow: 0 10px 22px rgba(207, 85, 117, 0.16);
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 18px;
-      color: #4d5e6d;
-      font-size: 14px;
-      white-space: nowrap;
-    }
-
-    .nav-links a {
-      border-bottom: 2px solid transparent;
-      padding: 18px 0 16px;
-    }
-
-    .nav-links a:hover {
-      border-color: var(--sakura);
-      color: var(--sakura-strong);
-    }
-
-    .hero {
-      position: relative;
-      display: grid;
-      min-height: 92vh;
-      place-items: center;
-      overflow: hidden;
-      padding: 96px 20px 78px;
-      color: #fff;
-      isolation: isolate;
-    }
-
-    .hero::before {
-      position: absolute;
-      inset: 0;
-      z-index: -2;
-      content: "";
-      background:
-        linear-gradient(180deg, rgba(28, 37, 45, 0.22), rgba(28, 37, 45, 0.5)),
-        url("https://images.unsplash.com/photo-1522383225653-ed111181a951?auto=format&fit=crop&w=1800&q=85") center / cover;
-      transform: scale(1.02);
-    }
-
-    .hero::after {
-      position: absolute;
-      inset: auto 0 0;
-      z-index: -1;
-      height: 34%;
-      content: "";
-      background: linear-gradient(180deg, transparent, rgba(255, 250, 248, 0.92));
-    }
-
-    .hero-content {
-      width: min(820px, 100%);
-      text-align: center;
-      text-shadow: 0 2px 18px rgba(0, 0, 0, 0.2);
-    }
-
-    .eyebrow {
-      margin: 0 0 14px;
-      font-size: 14px;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-    }
-
-    h1 {
-      margin: 0;
-      font-size: clamp(42px, 8vw, 86px);
-      font-weight: 800;
-      line-height: 1.08;
-      letter-spacing: 0;
-    }
-
-    .hero-copy {
-      width: min(660px, 100%);
-      margin: 22px auto 0;
-      color: rgba(255, 255, 255, 0.92);
-      font-size: clamp(17px, 2.5vw, 22px);
-    }
-
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 12px;
-      margin-top: 34px;
-    }
-
-    .button {
-      display: inline-flex;
-      min-height: 44px;
-      align-items: center;
-      justify-content: center;
-      border: 1px solid rgba(255, 255, 255, 0.56);
-      border-radius: 6px;
-      padding: 10px 18px;
-      background: rgba(255, 255, 255, 0.18);
-      color: #fff;
-      font-weight: 700;
-      backdrop-filter: blur(12px);
-    }
-
-    .button.primary {
-      border-color: transparent;
-      background: #fff;
-      color: var(--sakura-strong);
-      text-shadow: none;
-    }
-
-    .petal {
-      position: absolute;
-      z-index: 1;
-      top: -40px;
-      width: 14px;
-      height: 10px;
-      border-radius: 100% 0 100% 0;
-      background: rgba(255, 196, 213, 0.84);
-      filter: drop-shadow(0 8px 12px rgba(109, 47, 64, 0.12));
-      animation: fall 13s linear infinite;
-    }
-
-    .petal:nth-child(1) { left: 8%; animation-delay: 0s; }
-    .petal:nth-child(2) { left: 22%; animation-delay: 4s; animation-duration: 16s; }
-    .petal:nth-child(3) { left: 43%; animation-delay: 1.4s; animation-duration: 14s; }
-    .petal:nth-child(4) { left: 66%; animation-delay: 6s; animation-duration: 17s; }
-    .petal:nth-child(5) { left: 85%; animation-delay: 2.5s; animation-duration: 15s; }
-
-    @keyframes fall {
-      0% { transform: translate3d(0, -20px, 0) rotate(0deg); opacity: 0; }
-      12% { opacity: 1; }
-      100% { transform: translate3d(72px, 105vh, 0) rotate(360deg); opacity: 0; }
-    }
-
-    main {
-      margin-top: -36px;
-      background: linear-gradient(180deg, rgba(255, 250, 248, 0), var(--paper) 80px);
-    }
-
-    .section {
-      width: min(1120px, calc(100% - 32px));
-      margin: 0 auto;
-      padding: 72px 0;
-    }
-
-    .section-heading {
-      display: flex;
-      align-items: end;
-      justify-content: space-between;
-      gap: 24px;
-      margin-bottom: 26px;
-    }
-
-    h2 {
-      margin: 0;
-      font-size: clamp(26px, 4vw, 38px);
-      line-height: 1.2;
-      letter-spacing: 0;
-    }
-
-    .section-note {
-      max-width: 420px;
-      margin: 0;
-      color: var(--muted);
-      font-size: 15px;
-    }
-
-    .layout {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) 310px;
-      gap: 28px;
-      align-items: start;
-    }
-
-    .post-list {
-      display: grid;
-      gap: 18px;
-    }
-
-    .post-card {
-      display: grid;
-      grid-template-columns: 220px minmax(0, 1fr);
-      overflow: hidden;
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      background: var(--surface);
-      box-shadow: var(--shadow);
-    }
-
-    .post-card img {
-      width: 100%;
-      height: 100%;
-      min-height: 190px;
-      object-fit: cover;
-    }
-
-    .post-body {
-      padding: 24px;
-    }
-
-    .meta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px 14px;
-      color: var(--muted);
-      font-size: 13px;
-    }
-
-    .tag {
-      color: var(--sakura-strong);
-      font-weight: 700;
-    }
-
-    h3 {
-      margin: 10px 0 9px;
-      font-size: 22px;
-      line-height: 1.34;
-      letter-spacing: 0;
-    }
-
-    .post-body p {
-      margin: 0 0 18px;
-      color: #566979;
-    }
-
-    .read-more {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      color: var(--leaf);
-      font-weight: 700;
-    }
-
-    .read-more::after {
-      content: ">";
-      font-size: 14px;
-    }
-
-    .sidebar {
-      display: grid;
-      gap: 18px;
-      position: sticky;
-      top: 86px;
-    }
-
-    .panel {
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      background: rgba(255, 255, 255, 0.78);
-      box-shadow: var(--shadow);
-    }
-
-    .profile {
-      overflow: hidden;
-    }
-
-    .profile-cover {
-      height: 94px;
-      background: url("https://images.unsplash.com/photo-1490750967868-88aa4486c946?auto=format&fit=crop&w=900&q=80") center / cover;
-    }
-
-    .profile-body {
-      padding: 0 22px 24px;
-      text-align: center;
-    }
-
-    .avatar {
-      display: grid;
-      width: 82px;
-      height: 82px;
-      margin: -41px auto 12px;
-      place-items: center;
-      border: 4px solid #fff;
-      border-radius: 50%;
-      background: linear-gradient(135deg, #fff4f7, #e7f1ea);
-      color: var(--sakura-strong);
-      font-size: 28px;
-      font-weight: 800;
-      box-shadow: 0 12px 24px rgba(67, 55, 59, 0.15);
-    }
-
-    .profile h2 {
-      margin: 0 0 7px;
-      font-size: 20px;
-    }
-
-    .profile p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 14px;
-    }
-
-    .stats {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1px;
-      margin-top: 18px;
-      overflow: hidden;
-      border: 1px solid var(--line);
-      border-radius: 6px;
-      background: var(--line);
-    }
-
-    .stat {
-      padding: 10px 6px;
-      background: rgba(255, 255, 255, 0.76);
-    }
-
-    .stat strong {
-      display: block;
-      font-size: 18px;
-    }
-
-    .stat span {
-      color: var(--muted);
-      font-size: 12px;
-    }
-
-    .panel-body {
-      padding: 20px 22px;
-    }
-
-    .panel-title {
-      margin: 0 0 12px;
-      font-size: 16px;
-      font-weight: 800;
-    }
-
-    .archive-list,
-    .link-list {
-      display: grid;
-      gap: 10px;
-      margin: 0;
-      padding: 0;
-      list-style: none;
-      color: #526577;
-      font-size: 14px;
-    }
-
-    .archive-list li,
-    .link-list a {
-      display: flex;
-      justify-content: space-between;
-      gap: 12px;
-      border-bottom: 1px dashed rgba(36, 49, 61, 0.16);
-      padding-bottom: 9px;
-    }
-
-    .archive-list li:last-child,
-    .link-list a:last-child {
-      border-bottom: 0;
-      padding-bottom: 0;
-    }
-
-    .mood-board {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 10px;
-      margin-top: 14px;
-    }
-
-    .swatch {
-      aspect-ratio: 1;
-      border-radius: 7px;
-      border: 1px solid rgba(36, 49, 61, 0.12);
-    }
-
-    .swatch:nth-child(1) { background: var(--sakura); }
-    .swatch:nth-child(2) { background: var(--leaf); }
-    .swatch:nth-child(3) { background: var(--sky); }
-    .swatch:nth-child(4) { background: var(--gold); }
-
-    .about-band {
-      background:
-        linear-gradient(90deg, rgba(255, 250, 248, 0.96), rgba(255, 250, 248, 0.72)),
-        url("https://images.unsplash.com/photo-1522748906645-95d8adfd52c7?auto=format&fit=crop&w=1600&q=82") center / cover;
-      border-block: 1px solid rgba(36, 49, 61, 0.09);
-    }
-
-    .about-content {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(260px, 420px);
-      gap: 38px;
-      align-items: center;
-    }
-
-    .about-copy p {
-      max-width: 680px;
-      color: #526577;
-      font-size: 17px;
-    }
-
-    .timeline {
-      display: grid;
-      gap: 14px;
-      margin: 0;
-      padding: 0;
-      list-style: none;
-    }
-
-    .timeline li {
-      border-left: 3px solid var(--sakura);
-      padding: 2px 0 2px 14px;
-      color: #4b5f70;
-    }
-
-    .timeline strong {
-      display: block;
-      color: var(--ink);
-    }
-
-    .site-footer {
-      border-top: 1px solid var(--line);
-      padding: 34px 20px;
-      color: var(--muted);
-      text-align: center;
-      font-size: 14px;
-    }
-
-    @media (max-width: 860px) {
-      .nav {
-        align-items: flex-start;
-        flex-direction: column;
-        gap: 2px;
-        padding: 12px 0;
-      }
-
-      .nav-links {
-        width: 100%;
-        overflow-x: auto;
-        gap: 16px;
-      }
-
-      .nav-links a {
-        padding: 4px 0 10px;
-      }
-
-      .hero {
-        min-height: 88vh;
-        padding-top: 132px;
-      }
-
-      .section-heading,
-      .about-content {
-        align-items: start;
-        grid-template-columns: 1fr;
-      }
-
-      .layout {
-        grid-template-columns: 1fr;
-      }
-
-      .sidebar {
-        position: static;
-      }
-    }
-
-    @media (max-width: 640px) {
-      .section {
-        width: min(100% - 24px, 1120px);
-        padding: 52px 0;
-      }
-
-      .post-card {
-        grid-template-columns: 1fr;
-      }
-
-      .post-card img {
-        height: 190px;
-        min-height: 0;
-      }
-
-      .post-body {
-        padding: 20px;
-      }
-
-      .hero-actions {
-        align-items: stretch;
-        flex-direction: column;
-      }
-
-      .button {
-        width: 100%;
-      }
-    }
-  </style>
+  <meta name="description" content="change1010 personal blog.">
+  <title>change1010 Blog</title>
+  <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
-  <header class="site-header">
-    <nav class="nav" aria-label="主导航">
-      <a class="brand" href="#top">
-        <span class="brand-mark">桜</span>
-        <span>change1010</span>
-      </a>
-      <div class="nav-links">
-        <a href="#posts">文章</a>
-        <a href="#about">关于</a>
-        <a href="#archive">归档</a>
-        <a href="https://github.com/change1010/change-blog">GitHub</a>
-      </div>
-    </nav>
-  </header>
-
+<header class="site-header">
+  <nav class="nav" aria-label="Main navigation">
+    <a class="brand" href="index.html#top">
+      <span class="brand-mark">&#26716;</span>
+      <span>change1010</span>
+    </a>
+    <div class="nav-links">
+      <a href="index.html#posts">&#25991;&#31456;</a>
+      <a href="index.html#about">&#20851;&#20110;</a>
+      <a href="index.html#archive">&#24402;&#26723;</a>
+      <a href="https://github.com/change1010/change-blog">GitHub</a>
+    </div>
+  </nav>
+</header>
   <section class="hero" id="top">
     <span class="petal"></span>
     <span class="petal"></span>
@@ -598,11 +30,11 @@
     <span class="petal"></span>
     <div class="hero-content">
       <p class="eyebrow">A quiet place for code and life</p>
-      <h1>change1010 的博客</h1>
-      <p class="hero-copy">把学习过程、项目记录和偶然冒出的想法都安放在这里，慢慢写，慢慢长大。</p>
+      <h1>change1010 &#30340;&#21338;&#23458;</h1>
+      <p class="hero-copy">&#25226;&#23398;&#20064;&#36807;&#31243;&#12289;&#39033;&#30446;&#35760;&#24405;&#21644;&#20598;&#28982;&#20882;&#20986;&#30340;&#24819;&#27861;&#37117;&#23433;&#25918;&#22312;&#36825;&#37324;&#12290;</p>
       <div class="hero-actions">
-        <a class="button primary" href="#posts">阅读最新文章</a>
-        <a class="button" href="#about">认识我</a>
+        <a class="button primary" href="#posts">&#38405;&#35835;&#26368;&#26032;&#25991;&#31456;</a>
+        <a class="button" href="#about">&#35748;&#35782;&#25105;</a>
       </div>
     </div>
   </section>
@@ -611,15 +43,15 @@
     <section class="section" id="posts">
       <div class="section-heading">
         <div>
-          <h2>最新文章</h2>
+          <h2>&#26368;&#26032;&#25991;&#31456;</h2>
         </div>
-        <p class="section-note">先放三篇占位文章，后面你只需要替换标题、日期、摘要和图片，就能继续扩展这个静态博客。</p>
+        <p class="section-note">Edit Markdown files in posts/, run the build script, and the homepage/article pages update automatically.</p>
       </div>
 
       <div class="layout">
         <div class="post-list">
           <article class="post-card">
-            <img src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=900&q=80" alt="笔记本电脑上的代码编辑器">
+            <img src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=900&q=80" alt="从零开始发布我的第一个静态博客">
             <div class="post-body">
               <div class="meta">
                 <span>2026-07-14</span>
@@ -627,68 +59,39 @@
               </div>
               <h3>从零开始发布我的第一个静态博客</h3>
               <p>记录把本地网页推送到 GitHub Pages 的完整过程，包括仓库、分支、Pages 设置和常见网络问题。</p>
-              <a class="read-more" href="#">继续阅读</a>
-            </div>
-          </article>
-
-          <article class="post-card">
-            <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=900&q=80" alt="桌面上的电脑与开发工具">
-            <div class="post-body">
-              <div class="meta">
-                <span>2026-07-13</span>
-                <span class="tag">学习笔记</span>
-              </div>
-              <h3>我如何整理每天学到的一点点</h3>
-              <p>把知识拆成小片段，留下能复现的步骤，再用文章把它们连起来。</p>
-              <a class="read-more" href="#">继续阅读</a>
-            </div>
-          </article>
-
-          <article class="post-card">
-            <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80" alt="阳光下的安静风景">
-            <div class="post-body">
-              <div class="meta">
-                <span>2026-07-12</span>
-                <span class="tag">生活</span>
-              </div>
-              <h3>给未来的自己留一封短笺</h3>
-              <p>不急着把一切都做完，先把今天能完成的一小步写下来。</p>
-              <a class="read-more" href="#">继续阅读</a>
+              <a class="read-more" href="articles/2026-07-14-github-pages.html">&#32487;&#32493;&#38405;&#35835;</a>
             </div>
           </article>
         </div>
 
-        <aside class="sidebar" aria-label="侧边栏">
+        <aside class="sidebar" aria-label="Sidebar">
           <section class="panel profile">
             <div class="profile-cover"></div>
             <div class="profile-body">
               <div class="avatar">C</div>
               <h2>change1010</h2>
-              <p>正在搭建自己的知识花园，写代码，也写生活。</p>
-              <div class="stats" aria-label="博客统计">
-                <div class="stat"><strong>3</strong><span>文章</span></div>
-                <div class="stat"><strong>4</strong><span>分类</span></div>
-                <div class="stat"><strong>1</strong><span>站点</span></div>
+              <p>&#27491;&#22312;&#25645;&#24314;&#33258;&#24049;&#30340;&#30693;&#35782;&#33457;&#22253;&#65292;&#20889;&#20195;&#30721;&#65292;&#20063;&#20889;&#29983;&#27963;&#12290;</p>
+              <div class="stats" aria-label="Blog stats">
+                <div class="stat"><strong>1</strong><span>&#25991;&#31456;</span></div>
+                <div class="stat"><strong>4</strong><span>&#20998;&#31867;</span></div>
+                <div class="stat"><strong>1</strong><span>&#31449;&#28857;</span></div>
               </div>
             </div>
           </section>
 
           <section class="panel" id="archive">
             <div class="panel-body">
-              <h2 class="panel-title">归档</h2>
+              <h2 class="panel-title">&#24402;&#26723;</h2>
               <ul class="archive-list">
-                <li><span>2026 年 7 月</span><span>3</span></li>
-                <li><span>GitHub Pages</span><span>1</span></li>
-                <li><span>学习笔记</span><span>1</span></li>
-                <li><span>生活</span><span>1</span></li>
+<li><span>2026-07</span><span>1</span></li>
               </ul>
             </div>
           </section>
 
           <section class="panel">
             <div class="panel-body">
-              <h2 class="panel-title">站点色彩</h2>
-              <p class="section-note">樱粉、叶绿、晴空蓝和一点暖金，保留 Sakura 的柔和感，但做成适合静态站的轻量版本。</p>
+              <h2 class="panel-title">&#31449;&#28857;&#33394;&#24425;</h2>
+              <p class="section-note">Sakura pink, leaf green, sky blue, and a warm gold accent.</p>
               <div class="mood-board" aria-hidden="true">
                 <span class="swatch"></span>
                 <span class="swatch"></span>
@@ -704,21 +107,20 @@
     <section class="about-band" id="about">
       <div class="section about-content">
         <div class="about-copy">
-          <h2>关于这个小站</h2>
-          <p>这是一个部署在 GitHub Pages 上的纯静态博客。它参考 Sakura 主题的氛围，但不需要 WordPress、服务器或数据库，只要一个 `index.html` 就能运行。</p>
-          <p>接下来可以继续加入独立文章页、分类页、相册、留言入口，或者逐步迁移到 Hexo、Hugo、Astro 等静态博客工具。</p>
+          <h2>&#20851;&#20110;&#36825;&#20010;&#23567;&#31449;</h2>
+          <p>&#36825;&#26159;&#19968;&#20010;&#37096;&#32626;&#22312; GitHub Pages &#19978;&#30340;&#32431;&#38745;&#24577;&#21338;&#23458;&#12290;&#20320;&#29616;&#22312;&#21487;&#20197;&#29992; Markdown &#20889;&#25991;&#31456;&#65292;&#28982;&#21518;&#29983;&#25104;&#38745;&#24577;&#39029;&#38754;&#12290;</p>
         </div>
         <ul class="timeline">
-          <li><strong>第一步</strong>完成 GitHub Pages 静态托管。</li>
-          <li><strong>第二步</strong>设计首页、文章列表和个人信息。</li>
-          <li><strong>第三步</strong>把真实文章慢慢写进去。</li>
+          <li><strong>Write</strong>Create or edit Markdown files in posts/.</li>
+          <li><strong>Build</strong>Run <code>.\tools\build-blog.ps1</code>.</li>
+          <li><strong>Publish</strong>Commit and push to GitHub Pages.</li>
         </ul>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
-    <p>© 2026 change1010. Built with GitHub Pages.</p>
+    <p>&copy; 2026 change1010. Built with GitHub Pages.</p>
   </footer>
 </body>
 </html>
