@@ -29,6 +29,7 @@
 4. 生成静态页面：
 
    ```powershell
+   cd E:\blog
    .\tools\build-blog.ps1
    ```
 
