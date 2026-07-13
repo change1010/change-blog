@@ -41,12 +41,18 @@ PDS 安装包和相关资料建议优先通过官方渠道获取。
 这里附上从官方客服获取的软件及license下载地址：
 
 PDS_2022.2-SP6.4-win64
-链接: https://pan.baidu.com/s/1V7j_bEHNM47Jd_5t0tQvKw 提取码: 4j8v 
+
+链接: https://pan.baidu.com/s/1V7j_bEHNM47Jd_5t0tQvKw 
+
+提取码: 4j8v 
 
 小眼睛FPGA--license
-链接: https://pan.baidu.com/s/1hgaunRgukaKtqln24xIY6g 提取码: gjtj 
 
-配套资料查阅及下载、技术答疑请登录逻辑矩阵技术论坛，https://www.szlogicmatrix.com/
+链接: https://pan.baidu.com/s/1hgaunRgukaKtqln24xIY6g 
+
+提取码: gjtj 
+
+配套资料查阅及下载、技术答疑请登录逻辑矩阵技术论坛https://www.szlogicmatrix.com/
 
 ## 关于 license 的提醒
 
