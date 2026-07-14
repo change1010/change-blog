@@ -42,15 +42,15 @@ PDS 安装包和相关资料建议优先通过官方渠道获取。
 
 PDS_2022.2-SP6.4-win64
 
-链接: https://pan.baidu.com/s/1V7j_bEHNM47Jd_5t0tQvKw 
+链接: https://pan.baidu.com/s/1V7j_bEHNM47Jd_5t0tQvKw
 
-提取码: 4j8v 
+提取码: 4j8v
 
 小眼睛FPGA--license
 
-链接: https://pan.baidu.com/s/1hgaunRgukaKtqln24xIY6g 
+链接: https://pan.baidu.com/s/1hgaunRgukaKtqln24xIY6g
 
-提取码: gjtj 
+提取码: gjtj
 
 配套资料查阅及下载、技术答疑请登录逻辑矩阵技术论坛https://www.szlogicmatrix.com/
 
@@ -65,4 +65,3 @@ PDS_2022.2-SP6.4-win64
 安装 TAP 虚拟网卡 → 修改虚拟网卡 MAC 匹配共享 lic 文件 → 配置环境变量PANGO_LICENSE_FILE加载破解 lic，绕过官方授权校验
 
 如需获得最正规的license文件，需要在紫光同创官网（https://www.pangomicro.com）注册账户并申请，这一般需要3-5天的时间（原因是紫光为人工审核）。
-

@@ -450,13 +450,10 @@ h3 {
 
 .about-content {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(260px, 420px);
-  gap: 38px;
   align-items: center;
 }
 
 .about-copy p {
-  max-width: 680px;
   color: #526577;
   font-size: 17px;
 }
