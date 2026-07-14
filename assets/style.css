@@ -329,7 +329,7 @@ h3 {
 
 .profile-cover {
   height: 94px;
-  background: url("image\DSC_0802.jpg") center / cover;
+  background: url("../image/DSC_0802_compressed.jpg") center / cover;
 }
 
 .profile-body {
