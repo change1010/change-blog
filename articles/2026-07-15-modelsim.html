@@ -1,0 +1,54 @@
+﻿<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="希望该文章能解决小白入门紫光同创FPGA所遇到的软件适配问题-2">
+  <title>【盘古100Pro+开发板】Modelsim版本问题相关报错 - change1010 Blog</title>
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body class="article-page">
+<header class="site-header">
+  <nav class="nav" aria-label="Main navigation">
+    <a class="brand" href="../index.html#top">
+      <span>change</span>
+    </a>
+    <div class="nav-links">
+      <a href="../index.html#posts">&#25991;&#31456;</a>
+      <a href="https://github.com/change1010/change-blog">GitHub</a>
+    </div>
+  </nav>
+</header>
+  <section class="hero article-hero" style="--cover: url('https://change1010.github.io/change-blog/image/OIP-C.jpg')">
+    <div class="hero-content">
+      <p class="eyebrow">2026-07-15 / FPGA</p>
+      <h1>【盘古100Pro+开发板】Modelsim版本问题相关报错</h1>
+      <p class="hero-copy">希望该文章能解决小白入门紫光同创FPGA所遇到的软件适配问题-2</p>
+    </div>
+  </section>
+  <main class="article-shell">
+    <article class="article-content">
+<p>这篇文章主要记录PDS与Modelsim联合仿真遇到的问题</p>
+<p>参考教程：</p>
+<ul>
+<li>小眼睛科技官方教程：<a href="https://blog.csdn.net/MYMINIEYE/article/details/131813369" target="_blank" rel="noopener noreferrer">https://blog.csdn.net/MYMINIEYE/article/details/131813369</a></li>
+</ul>
+<ul>
+<li><a href="https://blog.csdn.net/lijun1217815/article/details/134645841" target="_blank" rel="noopener noreferrer">https://blog.csdn.net/lijun1217815/article/details/134645841</a></li>
+</ul>
+<h2>为什么写这篇文章</h2>
+<p>紫光同创官方的开发资料实在是难以入目。很多文档会同时覆盖多个开发板，步骤也经常只讲到一半，初学者很容易不知道自己到底应该下载哪个版本、安装哪些组件、配置哪些文件。</p>
+<p>在与Modelsim联合仿真时，可能会遇到以下报错（以官方例程led_test为例）：</p>
+<pre><code>
+vsim -novopt -L work -L usim -L adc_e2 -L ddc_e2 -L dll_e2 -L hsstlp_lane -L hsstlp_pll -L iolhr_dft -L ipal_e1 -L ipal_e2 -L iserdes_e2 -L oserdes_e2 -L pciegen2 tb_led_test usim.GTP_GRS
+</code></pre>
+<p>根本原因是Modelsim 10.7后不再支持novopt</p>
+<p>这里给出最简单的解决方案即卸载现版本，重装旧版本，旧版本安装教程也请读者自己寻找</p>
+<p>如果需要用新版本解决该问题，可以向上翻阅查看参考教程2</p>
+    </article>
+  </main>
+  <footer class="site-footer">
+    <p>&copy; 2026 change1010. Built with GitHub Pages.</p>
+  </footer>
+</body>
+</html>
