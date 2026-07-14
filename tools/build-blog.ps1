@@ -202,7 +202,7 @@ $(SiteHeader "../")
   <section class="hero article-hero" style="--cover: url('$($post.Cover)')">
     <div class="hero-content">
       <p class="eyebrow">$($post.Date) / $category</p>
-      <h1>$title</h1>
+      <h1 class="article-title">$title</h1>
       <p class="hero-copy">$description</p>
     </div>
   </section>
