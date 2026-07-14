@@ -54,3 +54,9 @@
 ```text
 https://change1010.github.io/change-blog/
 ```
+
+报错解决：Failed to connect to github.com port 443
+
+git config --global http.proxy http://127.0.0.1:7897
+
+git push
