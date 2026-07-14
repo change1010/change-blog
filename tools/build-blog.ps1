@@ -137,13 +137,10 @@ function SiteHeader($prefix) {
 <header class="site-header">
   <nav class="nav" aria-label="Main navigation">
     <a class="brand" href="${prefix}index.html#top">
-      <span class="brand-mark">&#26716;</span>
-      <span>change1010</span>
+      <span>change</span>
     </a>
     <div class="nav-links">
       <a href="${prefix}index.html#posts">&#25991;&#31456;</a>
-      <a href="${prefix}index.html#about">&#20851;&#20110;</a>
-      <a href="${prefix}index.html#archive">&#24402;&#26723;</a>
       <a href="https://github.com/change1010/change-blog">GitHub</a>
     </div>
   </nav>
@@ -229,11 +226,6 @@ $postCards = foreach ($post in $posts) {
 }
 $postCardsHtml = $postCards -join "`n"
 
-$archiveItems = $posts | Group-Object { ([datetime]$_.Date).ToString("yyyy-MM") } | ForEach-Object {
-  "<li><span>$($_.Name)</span><span>$($_.Count)</span></li>"
-}
-$archiveHtml = $archiveItems -join "`n"
-
 $index = @"
 <!doctype html>
 <html lang="zh-CN">
@@ -253,12 +245,10 @@ $(SiteHeader "")
     <span class="petal"></span>
     <span class="petal"></span>
     <div class="hero-content">
-      <p class="eyebrow">A quiet place for code and life</p>
-      <h1>change1010 &#30340;&#21338;&#23458;</h1>
+      <h1>change &#30340;&#21338;&#23458;</h1>
       <p class="hero-copy">&#25226;&#23398;&#20064;&#36807;&#31243;&#12289;&#39033;&#30446;&#35760;&#24405;&#21644;&#20598;&#28982;&#20882;&#20986;&#30340;&#24819;&#27861;&#37117;&#23433;&#25918;&#22312;&#36825;&#37324;&#12290;</p>
       <div class="hero-actions">
         <a class="button primary" href="#posts">&#38405;&#35835;&#26368;&#26032;&#25991;&#31456;</a>
-        <a class="button" href="#about">&#35748;&#35782;&#25105;</a>
       </div>
     </div>
   </section>
@@ -269,7 +259,6 @@ $(SiteHeader "")
         <div>
           <h2>&#26368;&#26032;&#25991;&#31456;</h2>
         </div>
-        <p class="section-note">Edit Markdown files in posts/, run the build script, and the homepage/article pages update automatically.</p>
       </div>
 
       <div class="layout">
@@ -282,34 +271,11 @@ $postCardsHtml
             <div class="profile-cover"></div>
             <div class="profile-body">
               <div class="avatar">C</div>
-              <h2>change1010</h2>
-              <p>&#27491;&#22312;&#25645;&#24314;&#33258;&#24049;&#30340;&#30693;&#35782;&#33457;&#22253;&#65292;&#20889;&#20195;&#30721;&#65292;&#20063;&#20889;&#29983;&#27963;&#12290;</p>
+              <h2>change</h2>
               <div class="stats" aria-label="Blog stats">
                 <div class="stat"><strong>$($posts.Count)</strong><span>&#25991;&#31456;</span></div>
                 <div class="stat"><strong>4</strong><span>&#20998;&#31867;</span></div>
                 <div class="stat"><strong>1</strong><span>&#31449;&#28857;</span></div>
-              </div>
-            </div>
-          </section>
-
-          <section class="panel" id="archive">
-            <div class="panel-body">
-              <h2 class="panel-title">&#24402;&#26723;</h2>
-              <ul class="archive-list">
-$archiveHtml
-              </ul>
-            </div>
-          </section>
-
-          <section class="panel">
-            <div class="panel-body">
-              <h2 class="panel-title">&#31449;&#28857;&#33394;&#24425;</h2>
-              <p class="section-note">Sakura pink, leaf green, sky blue, and a warm gold accent.</p>
-              <div class="mood-board" aria-hidden="true">
-                <span class="swatch"></span>
-                <span class="swatch"></span>
-                <span class="swatch"></span>
-                <span class="swatch"></span>
               </div>
             </div>
           </section>
@@ -323,11 +289,6 @@ $archiveHtml
           <h2>&#20851;&#20110;&#36825;&#20010;&#23567;&#31449;</h2>
           <p>&#36825;&#26159;&#19968;&#20010;&#37096;&#32626;&#22312; GitHub Pages &#19978;&#30340;&#32431;&#38745;&#24577;&#21338;&#23458;&#12290;&#20320;&#29616;&#22312;&#21487;&#20197;&#29992; Markdown &#20889;&#25991;&#31456;&#65292;&#28982;&#21518;&#29983;&#25104;&#38745;&#24577;&#39029;&#38754;&#12290;</p>
         </div>
-        <ul class="timeline">
-          <li><strong>Write</strong>Create or edit Markdown files in posts/.</li>
-          <li><strong>Build</strong>Run <code>.\tools\build-blog.ps1</code>.</li>
-          <li><strong>Publish</strong>Commit and push to GitHub Pages.</li>
-        </ul>
       </div>
     </section>
   </main>
