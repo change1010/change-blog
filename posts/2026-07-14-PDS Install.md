@@ -3,7 +3,7 @@ title: 【盘古100Pro+开发板】对网上常见的PDS下载与安装教程纠
 date: 2026-07-14
 category: FPGA
 cover: https://change1010.github.io/change-blog/image/%E5%B0%8F%E7%B4%AB%E5%B0%BA.png
-summary: 希望该文章能解决小白入门紫光同创FPGA所遇到的软件适配问题-1
+summary: 1-希望该文章能解决小白入门紫光同创FPGA所遇到的软件适配问题
 ---
 
 这篇文章主要记录我在使用盘古100Pro+开发板时，安装和配置PDS遇到的一些问题。
