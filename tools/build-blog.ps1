@@ -43,6 +43,22 @@ function ParsePost($path) {
 
 function ConvertInlineMarkdown($text) {
   $encoded = HtmlEncode $text
+  $encoded = [regex]::Replace($encoded, '\[([^\]]+)\]\((https?://[A-Za-z0-9][A-Za-z0-9._~:/?#@!$&*+,;=%-]*)\)', {
+    param($match)
+    $label = $match.Groups[1].Value
+    $url = $match.Groups[2].Value
+    return "<a href=""$url"" target=""_blank"" rel=""noopener noreferrer"">$label</a>"
+  })
+  $encoded = [regex]::Replace($encoded, '(?<!["''=])(https?://[A-Za-z0-9][A-Za-z0-9._~:/?#@!$&*+,;=%-]*)', {
+    param($match)
+    $url = $match.Groups[1].Value
+    $suffix = ""
+    while ($url.Length -gt 0 -and ".,;:!?，。；：！？、）)".Contains($url.Substring($url.Length - 1))) {
+      $suffix = $url.Substring($url.Length - 1) + $suffix
+      $url = $url.Substring(0, $url.Length - 1)
+    }
+    return "<a href=""$url"" target=""_blank"" rel=""noopener noreferrer"">$url</a>$suffix"
+  })
   $encoded = [regex]::Replace($encoded, '`([^`]+)`', '<code>$1</code>')
   $encoded = [regex]::Replace($encoded, "\*\*([^*]+)\*\*", '<strong>$1</strong>')
   return $encoded

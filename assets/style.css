@@ -533,6 +533,17 @@ h3 {
   color: #9b4964;
 }
 
+.article-content a {
+  color: var(--sakura-strong);
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.article-content a:hover {
+  color: var(--leaf);
+}
+
 .article-content pre {
   overflow-x: auto;
   border-radius: 8px;
