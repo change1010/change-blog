@@ -196,6 +196,7 @@ foreach ($post in $posts) {
   <meta name="description" content="$description">
   <title>$title - change1010 Blog</title>
   <link rel="stylesheet" href="../assets/style.css">
+  <link rel="icon" href="../image/favicon.png" type="image/png">
 </head>
 <body class="article-page">
 $(SiteHeader "../")
@@ -251,6 +252,7 @@ $index = @"
   <meta name="description" content="change1010 personal blog.">
   <title>change1010 Blog</title>
   <link rel="stylesheet" href="assets/style.css">
+  <link rel="icon" href="image/favicon.png" type="image/png">
 </head>
 <body>
 $(SiteHeader "")
