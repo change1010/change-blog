@@ -57,6 +57,8 @@ https://change1010.github.io/change-blog/
 
 报错解决：Failed to connect to github.com port 443
 
-git config --global http.proxy http://127.0.0.1:7897
+设置 Git 使用本地代理：git config --global http.proxy http://127.0.0.1:7897
+
+检验是否设置成功：git config --global -l
 
 git push

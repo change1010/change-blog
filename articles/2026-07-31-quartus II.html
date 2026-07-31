@@ -1,0 +1,58 @@
+﻿<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="这篇文章主要记录quartus ii在安装USB-Blaster驱动时遇到的报错问题">
+  <title>【Quartus II】Quartus II版本问题导致USB-Blaster驱动更新报错[代码：39/52] - change1010 Blog</title>
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="icon" href="../image/favicon.png" type="image/png">
+</head>
+<body class="article-page">
+<header class="site-header">
+  <nav class="nav" aria-label="Main navigation">
+    <a class="brand" href="../index.html#top">
+      <span>change</span>
+    </a>
+    <div class="nav-links">
+      <a href="../index.html#posts">&#25991;&#31456;</a>
+      <a href="https://github.com/change1010/change-blog">GitHub</a>
+    </div>
+  </nav>
+</header>
+  <section class="hero article-hero" style="--cover: url('https://change1010.github.io/change-blog/image/OIP-C.jpg')">
+    <div class="hero-content">
+      <p class="eyebrow">2026-07-31 / FPGA</p>
+      <h1 class="article-title">【Quartus II】Quartus II版本问题导致USB-Blaster驱动更新报错[代码：39/52]</h1>
+      <p class="hero-copy">这篇文章主要记录quartus ii在安装USB-Blaster驱动时遇到的报错问题</p>
+    </div>
+  </section>
+  <main class="article-shell">
+    <article class="article-content">
+<p>这篇文章主要记录quartus ii在安装USB-Blaster驱动时遇到的报错问题</p>
+<h2>参考教程</h2>
+<ul>
+<li><a href="https://www.bilibili.com/video/BV17z411i7ers" target="_blank" rel="noopener noreferrer">野火官方教程：第三讲 - FPGA 开发环境的搭建</a></li>
+</ul>
+<h2>问题描述</h2>
+<h3>Quartus II 13.0：代码 39</h3>
+<p>最开始按照野火教程下载了同版本的quartus ii 13.0，但是在安装USB-Blaster驱动时，遇到了如下报错</p>
+<pre><code>
+Windows 无法加载这个硬件的设备驱动程序。驱动程序可能已损坏或不见了。 (代码 39)
+</code></pre>
+<p>首先根据网上的<a href="https://www.cnblogs.com/Skyrim-sssuuu/p/18817257" target="_blank" rel="noopener noreferrer">相关方法</a>关闭内存完整性，无效。</p>
+<p>后看到<a href="https://blog.csdn.net/u011545492/article/details/115539834" target="_blank" rel="noopener noreferrer">这篇文章</a>，意识到应该是旧版本quartus ii不兼容win11导致。</p>
+<p>根据文中指引，在<a href="https://community.altera.com/kb/knowledge-base/windows-cannot-load-the-device-driver-for-this-software-the-driver-may-be-corrup/348474" target="_blank" rel="noopener noreferrer">Altera 社区</a>中找到该篇文章，然而该文章版本对应的是win10版本，最终还是选择了卸载重装更新版本的quartus ii 18.1（参考<a href="https://blog.csdn.net/m0_66360845/article/details/145574280" target="_blank" rel="noopener noreferrer">文章</a>）。</p>
+<h3>Quartus II 18.1：代码 52</h3>
+<p>在quartus ii 18.1又遇到了如下报错</p>
+<pre><code>
+Windows 无法验证此设备所需的驱动程序的数字签名。 (代码 52)
+</code></pre>
+<p>通过“禁用驱动程序强制签名”完美解决（参考<a href="https://blog.csdn.net/qq_34255385/article/details/151801277" target="_blank" rel="noopener noreferrer">文章</a>）。</p>
+    </article>
+  </main>
+  <footer class="site-footer">
+    <p>&copy; 2026 change1010. Built with GitHub Pages.</p>
+  </footer>
+</body>
+</html>
