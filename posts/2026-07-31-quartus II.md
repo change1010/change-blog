@@ -2,7 +2,7 @@
 title: 【Quartus II】Quartus II版本问题导致USB-Blaster驱动更新报错[代码：39/52]
 date: 2026-07-31
 category: FPGA
-cover: https://change1010.github.io/change-blog/image/OIP-C.jpg
+cover: https://change1010.github.io/change-blog/image/quartus.webp
 summary: 这篇文章主要记录quartus ii在安装USB-Blaster驱动时遇到的报错问题
 ---
 
