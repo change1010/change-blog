@@ -10,7 +10,7 @@ summary: 这篇文章主要记录quartus ii在安装USB-Blaster驱动时遇到�
 
 ## 参考教程
 
-- [野火官方教程：第三讲 - FPGA 开发环境的搭建](https://www.bilibili.com/video/BV17z411i7ers)
+- [野火官方教程：第三讲 - FPGA 开发环境的搭建](https://www.bilibili.com/video/BV17z411i7er/?vd_source=dd1289d2d54437314cc320323176dba3)
 
 ## 问题描述
 
@@ -22,11 +22,11 @@ summary: 这篇文章主要记录quartus ii在安装USB-Blaster驱动时遇到�
 Windows 无法加载这个硬件的设备驱动程序。驱动程序可能已损坏或不见了。 (代码 39)
 ```
 
-首先根据网上的[相关方法](https://www.cnblogs.com/Skyrim-sssuuu/p/18817257)关闭内存完整性，无效。
+首先根据网上的相关方法：[【FPGA】Quartus II安装Altera USB-Blaster安装驱动程序出现问题（代码39）的解决办法](https://www.cnblogs.com/Skyrim-sssuuu/p/18817257)关闭内存完整性，无效。
 
-后看到[这篇文章](https://blog.csdn.net/u011545492/article/details/115539834)，意识到应该是旧版本quartus ii不兼容win11导致。
+后看到这篇文章：[USB-Blaster驱动安装失败 Code 39](https://blog.csdn.net/u011545492/article/details/115539834)，意识到应该是旧版本quartus ii不兼容win11导致。
 
-根据文中指引，在[Altera 社区](https://community.altera.com/kb/knowledge-base/windows-cannot-load-the-device-driver-for-this-software-the-driver-may-be-corrup/348474)中找到该篇文章，然而该文章版本对应的是win10版本，最终还是选择了卸载重装更新版本的quartus ii 18.1（参考[文章](https://blog.csdn.net/m0_66360845/article/details/145574280)）。
+根据文中指引，在Altera 社区中找到该篇文章：[Windows cannot load the device-driver for this software. The driver may be corrupted or missing (Code: 39)](https://community.altera.com/kb/knowledge-base/windows-cannot-load-the-device-driver-for-this-software-the-driver-may-be-corrup/348474)，然而该文章版本对应的是win10版本，最终还是选择了卸载重装更新版本的quartus ii 18.1（参考文章：[Quartus18.1标准版的下载安装以及联合Modelsim使用](https://blog.csdn.net/m0_66360845/article/details/145574280)）。
 
 ### Quartus II 18.1：代码 52
 
@@ -34,4 +34,4 @@ Windows 无法加载这个硬件的设备驱动程序。驱动程序可能已损
 ```text
 Windows 无法验证此设备所需的驱动程序的数字签名。 (代码 52)
 ```
-通过“禁用驱动程序强制签名”完美解决（参考[文章](https://blog.csdn.net/qq_34255385/article/details/151801277)）。
+通过“禁用驱动程序强制签名”完美解决（参考文章：[解决Windows安装驱动错误代码52：数字签名验证失败](https://blog.csdn.net/qq_34255385/article/details/151801277)）。

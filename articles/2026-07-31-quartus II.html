@@ -32,7 +32,7 @@
 <p>这篇文章主要记录quartus ii在安装USB-Blaster驱动时遇到的报错问题</p>
 <h2>参考教程</h2>
 <ul>
-<li><a href="https://www.bilibili.com/video/BV17z411i7ers" target="_blank" rel="noopener noreferrer">野火官方教程：第三讲 - FPGA 开发环境的搭建</a></li>
+<li><a href="https://www.bilibili.com/video/BV17z411i7er/?vd_source=dd1289d2d54437314cc320323176dba3" target="_blank" rel="noopener noreferrer">野火官方教程：第三讲 - FPGA 开发环境的搭建</a></li>
 </ul>
 <h2>问题描述</h2>
 <h3>Quartus II 13.0：代码 39</h3>
@@ -40,15 +40,15 @@
 <pre><code>
 Windows 无法加载这个硬件的设备驱动程序。驱动程序可能已损坏或不见了。 (代码 39)
 </code></pre>
-<p>首先根据网上的<a href="https://www.cnblogs.com/Skyrim-sssuuu/p/18817257" target="_blank" rel="noopener noreferrer">相关方法</a>关闭内存完整性，无效。</p>
-<p>后看到<a href="https://blog.csdn.net/u011545492/article/details/115539834" target="_blank" rel="noopener noreferrer">这篇文章</a>，意识到应该是旧版本quartus ii不兼容win11导致。</p>
-<p>根据文中指引，在<a href="https://community.altera.com/kb/knowledge-base/windows-cannot-load-the-device-driver-for-this-software-the-driver-may-be-corrup/348474" target="_blank" rel="noopener noreferrer">Altera 社区</a>中找到该篇文章，然而该文章版本对应的是win10版本，最终还是选择了卸载重装更新版本的quartus ii 18.1（参考<a href="https://blog.csdn.net/m0_66360845/article/details/145574280" target="_blank" rel="noopener noreferrer">文章</a>）。</p>
+<p>首先根据网上的相关方法：<a href="https://www.cnblogs.com/Skyrim-sssuuu/p/18817257" target="_blank" rel="noopener noreferrer">【FPGA】Quartus II安装Altera USB-Blaster安装驱动程序出现问题（代码39）的解决办法</a>关闭内存完整性，无效。</p>
+<p>后看到这篇文章：<a href="https://blog.csdn.net/u011545492/article/details/115539834" target="_blank" rel="noopener noreferrer">USB-Blaster驱动安装失败 Code 39</a>，意识到应该是旧版本quartus ii不兼容win11导致。</p>
+<p>根据文中指引，在Altera 社区中找到该篇文章：<a href="https://community.altera.com/kb/knowledge-base/windows-cannot-load-the-device-driver-for-this-software-the-driver-may-be-corrup/348474" target="_blank" rel="noopener noreferrer">Windows cannot load the device-driver for this software. The driver may be corrupted or missing (Code: 39)</a>，然而该文章版本对应的是win10版本，最终还是选择了卸载重装更新版本的quartus ii 18.1（参考文章：<a href="https://blog.csdn.net/m0_66360845/article/details/145574280" target="_blank" rel="noopener noreferrer">Quartus18.1标准版的下载安装以及联合Modelsim使用</a>）。</p>
 <h3>Quartus II 18.1：代码 52</h3>
 <p>在quartus ii 18.1又遇到了如下报错</p>
 <pre><code>
 Windows 无法验证此设备所需的驱动程序的数字签名。 (代码 52)
 </code></pre>
-<p>通过“禁用驱动程序强制签名”完美解决（参考<a href="https://blog.csdn.net/qq_34255385/article/details/151801277" target="_blank" rel="noopener noreferrer">文章</a>）。</p>
+<p>通过“禁用驱动程序强制签名”完美解决（参考文章：<a href="https://blog.csdn.net/qq_34255385/article/details/151801277" target="_blank" rel="noopener noreferrer">解决Windows安装驱动错误代码52：数字签名验证失败</a>）。</p>
     </article>
   </main>
   <footer class="site-footer">
