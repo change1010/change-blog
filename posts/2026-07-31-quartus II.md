@@ -7,6 +7,7 @@ summary: 这篇文章主要记录quartus ii在安装USB-Blaster驱动时遇到�
 ---
 
 这篇文章主要记录quartus ii在安装USB-Blaster驱动时遇到的报错问题
+
 温馨提示：如果下载的是quartus 13.0/13.1版本，请直接滑到文末。
 
 ## 参考教程
