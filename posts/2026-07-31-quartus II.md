@@ -7,6 +7,7 @@ summary: 这篇文章主要记录quartus ii在安装USB-Blaster驱动时遇到�
 ---
 
 这篇文章主要记录quartus ii在安装USB-Blaster驱动时遇到的报错问题
+温馨提示：如果下载的是quartus 13.0/13.1版本，请直接滑到文末。
 
 ## 参考教程
 
@@ -37,3 +38,7 @@ Windows 无法验证此设备所需的驱动程序的数字签名。 (代码 52)
 通过“禁用驱动程序强制签名”完美解决（参考文章：[解决Windows安装驱动错误代码52：数字签名验证失败](https://blog.csdn.net/qq_34255385/article/details/151801277)）。
 
 更正（2026.8.2）：上文提到的“禁用驱动程序强制签名”方法，只能生效一次，太过于麻烦。最终找到了最完美的解决办法，参考文章：[WIN11 极简安装USB-Blaster驱动](https://blog.csdn.net/Nautiluss/article/details/161118052)。
+
+此时又遇到了全新的问题，设备管理器中可以识别到USB-Blaster，然而quartus ii 18.1中无法识别，显示No Hardware，在尝试网上教程后决定重装。
+
+最终解决方案：下载quartus ii 13.1版本，并使用最新的USB-Blaster驱动（见上文更正内容）。
